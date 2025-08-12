@@ -9,14 +9,24 @@ body{margin:0;background:#000;color:#fff;font-family:monospace;overflow:hidden}
 .scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:.8s;opacity:1}
 .hidden{opacity:0;pointer-events:none}
 .big{font-size:3em;letter-spacing:4px;text-shadow:0 0 10px #fff;text-align:center;white-space:pre-line}
-.terminal{background:rgba(0,0,0,.7);padding:15px;border:1px solid rgba(57,255,20,.2);color:var(--green);text-shadow:0 0 5px var(--green);white-space:pre-wrap}
+.terminal{
+  background:rgba(0,0,0,.7);
+  padding:20px;
+  border:2px solid rgba(57,255,20,.4);
+  color:var(--green);
+  text-shadow:0 0 7px var(--green);
+  white-space:pre-wrap;
+  font-size:1.2em;
+  min-height:200px;
+  flex-grow:1;
+}
 .cursor{display:inline-block;width:8px;background:var(--green);animation:blink 1s steps(2,start) infinite}
 @keyframes blink{50%{opacity:0}}
-img{max-width:100%;border:1px solid #333;box-shadow:0 0 20px rgba(255,255,255,.6),0 0 40px rgba(255,255,255,.3)}
+img, video{max-width:100%;border:1px solid #333;box-shadow:0 0 20px rgba(255,255,255,.6),0 0 40px rgba(255,255,255,.3)}
 .left,.right{display:flex;flex-direction:column;gap:10px}
 .right{width:30%}
 .left{width:65%}
-.container{display:flex;gap:15px;padding:15px}
+.container{display:flex;gap:15px;padding:15px;height:100%}
 .title{font-size:1.5em;text-shadow:0 0 10px #fff;margin-bottom:10px}
 </style>
 </head>
@@ -32,8 +42,8 @@ DISCORD.GG/SKS لا تنسى تشقر علينا</div>
 <div id="scene2" class="scene hidden">
   <div class="container">
     <div class="left">
-      <!-- الصورة الأولى -->
-      <img src="https://media.tenor.com/cKfdGo-ejPAAAAPo/brian-moser-brian.gif" alt="">
+      <!-- GIF أو فيديو -->
+      <video src="https://tenor.com/view/brian-moser-brian-dexter-dexter-morgan-gif-17532768159868671521" autoplay loop muted playsinline></video>
       <!-- الصورة الثانية -->
       <img id="secondMainImg" alt="">
       <div class="title">server@system iG ZPPC, Dis ZPPC</div>
@@ -51,9 +61,10 @@ DISCORD.GG/SKS لا تنسى تشقر علينا</div>
 
 <script>
 // ===== إعداد الصور =====
-const secondMainImgSrc = "https://tenor.com/view/brian-moser-brian-dexter-dexter-morgan-gif-17532768159868671521"; // مسار الصورة الثانية الكبيرة
-مسار الصورة الجانبية
+const secondMainImgSrc = "SECOND-MAIN-IMAGE.jpeg"; // مسار الصورة الثانية الكبيرة
+const sideImgSrc = "EDA3FA54-1723-4DBD-B08C-78C528530ADD.jpeg"; // مسار الصورة الجانبية
 document.getElementById("secondMainImg").src = secondMainImgSrc;
+document.getElementById("sideImg").src = sideImgSrc;
 
 // ===== نص التيرمنال =====
 const text = `ROUQI: السلام عليكم ورحمة الله وبركاته 
@@ -85,4 +96,3 @@ document.body.addEventListener("click", () => {
 
 </body>
 </html>
-
