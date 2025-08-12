@@ -2,11 +2,10 @@
 <html lang="ar">
 <head>
 <meta charset="utf-8">
-<title>Hacked by RouQi</title>
+<title>HACKED BY ABU ROUQI</title>
 <style>
 :root {
   --green: #39ff14;
-  --white-glow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ccc;
 }
 
 body {
@@ -14,52 +13,74 @@ body {
   background: #000;
   color: #fff;
   font-family: monospace;
-  overflow: hidden;
-}
-
-.scene {
-  position: absolute;
-  inset: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  transition: .8s;
-  opacity: 1;
-}
-.hidden { opacity: 0; pointer-events: none; }
-
-.big {
-  font-size: 3em;
-  letter-spacing: 4px;
-  text-align: center;
-  white-space: pre-line;
-  animation: glowText 1.5s ease-in-out infinite alternate;
+  padding-top: 30px;
+  overflow-x: hidden;
 }
 
-@keyframes glowText {
-  from { text-shadow: var(--white-glow); }
-  to { text-shadow: 0 0 20px #fff, 0 0 40px #fff; }
+/* خلفية الـGIF المموهة */
+.bg-blur {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  overflow: hidden;
+  z-index: -2;
 }
 
-/* تحسين التيرمنال */
-.terminal {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 20px;
-  border-radius: 8px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  color: var(--green);
-  text-shadow: 0 0 7px var(--green);
-  white-space: pre-wrap;
-  font-size: 1.2em;
-  min-height: 200px;
+.bg-blur video {
   width: 100%;
-  animation: glowBorder 1.5s ease-in-out infinite alternate;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(15px) brightness(0.4);
 }
 
-@keyframes glowBorder {
-  from { box-shadow: 0 0 15px #fff; }
-  to { box-shadow: 0 0 35px #fff; }
+/* فيديو الـGIF الأمامي */
+.main-image {
+  border: 1px solid #fff;
+  box-shadow: 0 0 15px #fff, 0 0 30px #aaa;
+  max-width: 500px;
+  display: block;
+  z-index: 1;
 }
+
+/* نص HACKED BY */
+.hacked-text {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 20px 0 15px;
+  text-align: center;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff;
+  z-index: 1;
+}
+
+/* صندوق التيرمنال */
+.terminal-box {
+  border: 1px solid rgba(255,255,255,0.5);
+  padding: 15px;
+  max-width: 600px;
+  background: rgba(0,0,0,0.8);
+  box-shadow: 0 0 15px #fff;
+  font-size: 1em;
+  z-index: 1;
+}
+
+/* رابط الديسكورد */
+.discord-link {
+  color: #fff;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* نص التيرمنال */
+.terminal-text {
+  white-space: pre-wrap;
+  line-height: 1.5em;
+}
+
+.green { color: var(--green); text-shadow: 0 0 5px var(--green); }
+.white { color: #fff; }
 
 .cursor {
   display: inline-block;
@@ -67,74 +88,39 @@ body {
   background: var(--green);
   animation: blink 1s steps(2, start) infinite;
 }
-@keyframes blink { 50% { opacity: 0 } }
-
-video {
-  max-width: 100%;
-  border-radius: 8px;
-  border: 1px solid #fff;
-  animation: glowBorder 1.5s ease-in-out infinite alternate;
-  display: block;
-}
-
-.title {
-  font-size: 1.5em;
-  margin: 15px 0 5px;
-  animation: glowText 1.5s ease-in-out infinite alternate;
-  text-align: center;
-}
-
-/* النص فوق التيرمنال */
-.hacked-text {
-  font-size: 1.3em;
-  margin: 5px 0 10px;
-  text-align: center;
-  animation: glowText 1.5s ease-in-out infinite alternate;
-}
-
-#scene2 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  padding: 15px;
-  width: 100%;
-  max-width: 900px;
-}
+@keyframes blink { 50% { opacity: 0; } }
 </style>
 </head>
 <body>
 
-<!-- مشهد 1 -->
-<div id="scene1" class="scene">
-  <div class="big">SECURITY ALERT FHD IN THE SYSTEM ..
-DISCORD.GG/SKS لا تنسى تشقر علينا</div>
+<!-- خلفية مموهة متحركة -->
+<div class="bg-blur">
+  <video src="https://media.tenor.com/cKfdGo-ejPAAAAPo/brian-moser-brian.mp4" autoplay loop muted playsinline></video>
 </div>
 
-<!-- مشهد 2 -->
-<div id="scene2" class="scene hidden">
-  <div class="container">
-    <!-- GIF أو فيديو كبير -->
-    <video src="https://media.tenor.com/cKfdGo-ejPAAAAPo/brian-moser-brian.mp4" autoplay loop muted playsinline></video>
-    <!-- العنوان -->
-    <div class="title">server@system iG ZPPC, Dis ZPPC</div>
-    <!-- نص HACKED BY -->
-    <div class="hacked-text">HACKED BY ABU ROUQI</div>
-    <!-- التيرمنال -->
-    <div class="terminal"><span id="typed"></span><span class="cursor"></span></div>
+<!-- الفيديو الأمامي -->
+<video class="main-image" src="https://media.tenor.com/cKfdGo-ejPAAAAPo/brian-moser-brian.mp4" autoplay loop muted playsinline></video>
+
+<!-- HACKED BY -->
+<div class="hacked-text">HACKED BY ABU ROUQI</div>
+
+<!-- صندوق التيرمنال -->
+<div class="terminal-box">
+  <span class="discord-link">discord.gg/SKS</span>
+  <div class="terminal-text">
+    <span class="white">ROUQI:</span> <span class="green" id="typed"></span><span class="cursor"></span>
   </div>
 </div>
 
 <!-- ملف الصوت -->
-<audio id="hackSound" src="https://audio.jukehost.co.uk/8FojJF4kJUgRyL9BonbwZHOJ6CWfzSlM"></audio>
+<audio id="hackSound" src="https://audio.jukehost.co.uk/8FojJF4kJUgRyL9BonbwZHOJ6CWfzSlM" autoplay></audio>
 
 <script>
-// ===== نص التيرمنال =====
-const text = `ROUQI: السلام عليكم ورحمة الله وبركاته 
-ماني هنا اخرب ولا اعبث بالسيرفر 
+const text = ` السلام عليكم ورحمة الله وبركاته
+ماني هنا اخرب ولا اعبث بالسيرفر
 لكن اتمنى من الاونر بكل احترام يتواصل معي على الخاص.`;
 
-// ===== تأثير الكتابة =====
+// كتابة متحركة تلقائية
 let i = 0;
 function type() {
   if (i < text.length) {
@@ -143,18 +129,11 @@ function type() {
   }
 }
 
-// ===== الانتقال للمشهد الثاني =====
-function startScene() {
-  document.getElementById("scene1").classList.add("hidden");
-  document.getElementById("scene2").classList.remove("hidden");
+// بدء الصوت والكتابة مباشرة
+window.addEventListener("load", () => {
   document.getElementById("hackSound").play().catch(()=>{});
   type();
-}
-
-// ===== تشغيل بعد ضغط المستخدم =====
-document.body.addEventListener("click", () => {
-  setTimeout(startScene, 1500);
-}, {once:true});
+});
 </script>
 
 </body>
