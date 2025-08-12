@@ -8,7 +8,7 @@
 body{margin:0;background:#000;color:#fff;font-family:monospace;overflow:hidden}
 .scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:.8s;opacity:1}
 .hidden{opacity:0;pointer-events:none}
-.big{font-size:3em;letter-spacing:4px;text-shadow:0 0 10px #fff}
+.big{font-size:3em;letter-spacing:4px;text-shadow:0 0 10px #fff;text-align:center;white-space:pre-line}
 .terminal{background:rgba(0,0,0,.7);padding:15px;border:1px solid rgba(57,255,20,.2);color:var(--green);text-shadow:0 0 5px var(--green);white-space:pre-wrap}
 .cursor{display:inline-block;width:8px;background:var(--green);animation:blink 1s steps(2,start) infinite}
 @keyframes blink{50%{opacity:0}}
@@ -33,10 +33,10 @@ DISCORD.GG/SKS لا تنسى تشقر علينا</div>
   <div class="container">
     <div class="left">
       <!-- الصورة الأولى -->
-      <img src="https://images-ext-1.discordapp.net/external/n0LUADtjk93s91diGj7T_ie-8LMZzGD1qzHon88_GgM/https/media.tenor.com/cKfdGo-ejPAAAAPo/brian-moser-brian.mp4" alt="">
+      <img src="https://media.tenor.com/cKfdGo-ejPAAAAPo/brian-moser-brian.gif" alt="">
       <!-- الصورة الثانية -->
       <img id="secondMainImg" alt="">
-      <div class="title">server@system iG ZPPC,Dis ZPPC</div>
+      <div class="title">server@system iG ZPPC, Dis ZPPC</div>
       <div class="terminal"><span id="typed"></span><span class="cursor"></span></div>
     </div>
     <div class="right">
@@ -51,32 +51,37 @@ DISCORD.GG/SKS لا تنسى تشقر علينا</div>
 
 <script>
 // ===== إعداد الصور =====
-const secondMainImgSrc = "SECOND-MAIN-IMAGE.jpeg"; // الصورة الثانية الكبيرة
-const sideImgSrc = "EDA3FA54-1723-4DBD-B08C-78C528530ADD.jpeg"; // الصورة الجانبية
+const secondMainImgSrc = "SECOND-MAIN-IMAGE.jpeg"; // مسار الصورة الثانية الكبيرة
+const sideImgSrc = "EDA3FA54-1723-4DBD-B08C-78C528530ADD.jpeg"; // مسار الصورة الجانبية
 document.getElementById("secondMainImg").src = secondMainImgSrc;
 document.getElementById("sideImg").src = sideImgSrc;
 
 // ===== نص التيرمنال =====
 const text = `ROUQI: السلام عليكم ورحمة الله وبركاته 
-ماني هنا اخرب ولا ادعث بالسيرفر 
-ولكن اتمنى من الاونر بكل احترام يتواصل معاي دس
+ماني هنا اخرب ولا اعبث بالسيرفر 
+لكن اتمنى من الاونر بكل احترام يتواصل معي على الخاص.`;
 
 // ===== تأثير الكتابة =====
-let i=0;
+let i = 0;
 function type(){
-  if(i<text.length){
+  if(i < text.length){
     document.getElementById("typed").textContent += text[i++];
-    setTimeout(type,40);
+    setTimeout(type, 40);
   }
 }
 
-// ===== انتقال المشهد وتشغيل الصوت =====
-setTimeout(()=>{
+// ===== الانتقال للمشهد الثاني =====
+function startScene(){
   document.getElementById("scene1").classList.add("hidden");
   document.getElementById("scene2").classList.remove("hidden");
-  document.getElementById("hackSound").play();
+  document.getElementById("hackSound").play().catch(()=>{});
   type();
-},1500);
+}
+
+// ===== تشغيل بعد ضغط المستخدم =====
+document.body.addEventListener("click", () => {
+  setTimeout(startScene, 1500);
+}, {once:true});
 </script>
 
 </body>
