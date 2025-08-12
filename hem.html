@@ -2,7 +2,7 @@
 <html lang="ar">
 <head>
 <meta charset="utf-8">
-<title>Hack Scene</title>
+<title>Hacked by RouQi</title>
 <style>
 :root{--green:#39ff14}
 body{margin:0;background:#000;color:#fff;font-family:monospace;overflow:hidden}
@@ -13,7 +13,7 @@ body{margin:0;background:#000;color:#fff;font-family:monospace;overflow:hidden}
 .cursor{display:inline-block;width:8px;background:var(--green);animation:blink 1s steps(2,start) infinite}
 @keyframes blink{50%{opacity:0}}
 img{max-width:100%;border:1px solid #333;box-shadow:0 0 20px rgba(255,255,255,.6),0 0 40px rgba(255,255,255,.3)}
-.col{display:flex;flex-direction:column;gap:10px}
+.left,.right{display:flex;flex-direction:column;gap:10px}
 .right{width:30%}
 .left{width:65%}
 .container{display:flex;gap:15px;padding:15px}
@@ -22,33 +22,44 @@ img{max-width:100%;border:1px solid #333;box-shadow:0 0 20px rgba(255,255,255,.6
 </head>
 <body>
 
+<!-- مشهد 1 -->
 <div id="scene1" class="scene">
-  <div class="big">الرَت</div>
+  <div class="big">SECURITY ALERT FHD IN THE SYSTEM ..
+DISCORD.GG/SKS لا تنسى تشقر علينا</div>
 </div>
 
+<!-- مشهد 2 -->
 <div id="scene2" class="scene hidden">
   <div class="container">
     <div class="left">
-      <img src="E1F1B75D-8093-45FE-A2AA-CAA1BCBAEDCF.jpeg" alt="">
-      <div class="title">HACKED BY SAHM</div>
+      <!-- الصورة الأولى -->
+      <img src="https://images-ext-1.discordapp.net/external/n0LUADtjk93s91diGj7T_ie-8LMZzGD1qzHon88_GgM/https/media.tenor.com/cKfdGo-ejPAAAAPo/brian-moser-brian.mp4" alt="">
+      <!-- الصورة الثانية -->
+      <img id="secondMainImg" alt="">
+      <div class="title">server@system iG ZPPC,Dis ZPPC</div>
       <div class="terminal"><span id="typed"></span><span class="cursor"></span></div>
     </div>
     <div class="right">
-      <img id="secondImg" alt="">
+      <!-- صورة جانبية -->
+      <img id="sideImg" alt="">
     </div>
   </div>
 </div>
 
+<!-- ملف الصوت -->
+<audio id="hackSound" src="https://audio.jukehost.co.uk/8FojJF4kJUgRyL9BonbwZHOJ6CWfzSlM"></audio>
+
 <script>
-// ===== إعداد الصورة الثانية هنا =====
-const secondImageSrc = "EDA3FA54-1723-4DBD-B08C-78C528530ADD.jpeg";
-document.getElementById("secondImg").src = secondImageSrc;
+// ===== إعداد الصور =====
+const secondMainImgSrc = "SECOND-MAIN-IMAGE.jpeg"; // الصورة الثانية الكبيرة
+const sideImgSrc = "EDA3FA54-1723-4DBD-B08C-78C528530ADD.jpeg"; // الصورة الجانبية
+document.getElementById("secondMainImg").src = secondMainImgSrc;
+document.getElementById("sideImg").src = sideImgSrc;
 
 // ===== نص التيرمنال =====
-const text = `SAHM: هذا عرض تجريبي لمحاكاة واجهة تنبيه أمني.
-تم إنشاء هذه المحاكاة لأغراض تعليمية في مشروع المدرسة.
-الهدف هو عرض رسائل نظامية بأسلوب التيرمنال، مع كتابة حرفية وتوهج أخضر.
-تذكير: هذا مجرد مشروع تعليمي.`;
+const text = `ROUQI: السلام عليكم ورحمة الله وبركاته 
+ماني هنا اخرب ولا ادعث بالسيرفر 
+ولكن اتمنى من الاونر بكل احترام يتواصل معاي دس
 
 // ===== تأثير الكتابة =====
 let i=0;
@@ -59,10 +70,11 @@ function type(){
   }
 }
 
-// ===== انتقال المشهد =====
+// ===== انتقال المشهد وتشغيل الصوت =====
 setTimeout(()=>{
-  scene1.classList.add("hidden");
-  scene2.classList.remove("hidden");
+  document.getElementById("scene1").classList.add("hidden");
+  document.getElementById("scene2").classList.remove("hidden");
+  document.getElementById("hackSound").play();
   type();
 },1500);
 </script>
