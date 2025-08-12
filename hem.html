@@ -1,71 +1,147 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <title>Hacked by RouQi</title>
 <style>
-:root{--green:#39ff14}
-body{margin:0;background:#000;color:#fff;font-family:monospace;overflow:hidden}
-.scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:.8s;opacity:1}
-.hidden{opacity:0;pointer-events:none}
-.big{font-size:2.5em;letter-spacing:3px;text-shadow:0 0 10px #fff,0 0 20px #fff}
-.container{display:flex;flex-direction:column;align-items:center;gap:15px;max-width:900px;width:90%}
-video{width:100%;border:2px solid #333;box-shadow:0 0 20px #fff,0 0 40px rgba(255,255,255,.5)}
-h1,h2{margin:0;text-align:center;text-shadow:0 0 10px #fff,0 0 20px #fff}
-.terminal{background:rgba(0,0,0,.8);padding:15px;border:1px solid rgba(57,255,20,.4);color:var(--green);text-shadow:0 0 5px var(--green),0 0 15px var(--green);white-space:pre-wrap;font-size:1.2em;width:100%;box-shadow:0 0 20px rgba(255,255,255,.5)}
-.cursor{display:inline-block;width:8px;background:var(--green);animation:blink 1s steps(2,start) infinite}
-@keyframes blink{50%{opacity:0}}
+:root {
+  --green: #39ff14;
+  --white-glow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ccc;
+}
+
+body {
+  margin: 0;
+  background: #000;
+  color: #fff;
+  font-family: monospace;
+  overflow: hidden;
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .8s;
+  opacity: 1;
+}
+.hidden { opacity: 0; pointer-events: none; }
+
+.big {
+  font-size: 3em;
+  letter-spacing: 4px;
+  text-align: center;
+  white-space: pre-line;
+  animation: glowText 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glowText {
+  from { text-shadow: var(--white-glow); }
+  to { text-shadow: 0 0 20px #fff, 0 0 40px #fff; }
+}
+
+.terminal {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: var(--green);
+  text-shadow: 0 0 7px var(--green);
+  white-space: pre-wrap;
+  font-size: 1.2em;
+  min-height: 200px;
+  flex-grow: 1;
+  animation: glowBorder 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glowBorder {
+  from { box-shadow: 0 0 15px #fff; }
+  to { box-shadow: 0 0 35px #fff; }
+}
+
+.cursor {
+  display: inline-block;
+  width: 8px;
+  background: var(--green);
+  animation: blink 1s steps(2, start) infinite;
+}
+@keyframes blink { 50% { opacity: 0 } }
+
+video {
+  max-width: 100%;
+  border: 1px solid #fff;
+  animation: glowBorder 1.5s ease-in-out infinite alternate;
+  display: block;
+}
+
+.title {
+  font-size: 1.5em;
+  margin: 15px 0;
+  animation: glowText 1.5s ease-in-out infinite alternate;
+  text-align: center;
+}
+
+#scene2 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  width: 100%;
+  max-width: 900px;
+}
 </style>
 </head>
 <body>
 
 <!-- مشهد 1 -->
 <div id="scene1" class="scene">
-  <div class="big">SECURITY ALERT...<br>DISCORD.GG/SKS</div>
+  <div class="big">SECURITY ALERT FHD IN THE SYSTEM ..
+DISCORD.GG/SKS لا تنسى تشقر علينا</div>
 </div>
 
 <!-- مشهد 2 -->
 <div id="scene2" class="scene hidden">
   <div class="container">
-    <video id="hackVid" autoplay loop playsinline></video>
-    <h1>HACKED BY ROUQI</h1>
-    <h2>DISCORD.GG/SKS</h2>
+    <!-- GIF أو فيديو كبير -->
+    <video src="https://media.tenor.com/cKfdGo-ejPAAAAPo/brian-moser-brian.mp4" autoplay loop muted playsinline></video>
+    <!-- العنوان -->
+    <div class="title">server@system iG ZPPC, Dis ZPPC</div>
+    <!-- التيرمنال -->
     <div class="terminal"><span id="typed"></span><span class="cursor"></span></div>
   </div>
 </div>
 
-<!-- صوت منفصل -->
-<audio id="https://audio.jukehost.co.uk/8FojJF4kJUgRyL9BonbwZHOJ6CWfzSlM"></audio>
+<!-- ملف الصوت -->
+<audio id="hackSound" src="https://audio.jukehost.co.uk/8FojJF4kJUgRyL9BonbwZHOJ6CWfzSlM"></audio>
 
 <script>
-// إعداد الروابط
-const videoSrc = "https://media.tenor.com/cKfdGo-ejPAAAAPo/brian-moser-brian.mp4"; // رابط الفيديو
-const soundSrc = "https://audio.jukehost.co.uk/8FojJF4kJUgRyL9BonbwZHOJ6CWfzSlM";  // رابط الصوت
-document.getElementById("hackVid").src = videoSrc;
-document.getElementById("hackSound").src = soundSrc;
+// ===== نص التيرمنال =====
+const text = `ROUQI: السلام عليكم ورحمة الله وبركاته 
+ماني هنا اخرب ولا اعبث بالسيرفر 
+لكن اتمنى من الاونر بكل احترام يتواصل معي على الخاص.`;
 
-// نص التيرمنال
-const text = `ROUQI: السلام عليكم ورحمة الله وبركاته
-ماني هنا اخرب ولا ادعث بالسيرفر
-ولكن اتمنى من الاونر يتواصل معاي دس
-System breach detected...`;
-
-// تأثير الكتابة
-let i=0;
-function type(){
-  if(i<text.length){
+// ===== تأثير الكتابة =====
+let i = 0;
+function type() {
+  if (i < text.length) {
     document.getElementById("typed").textContent += text[i++];
-    setTimeout(type,40);
+    setTimeout(type, 40);
   }
 }
 
-// الانتقال للمشهد الثاني بعد ثانيتين
-setTimeout(()=>{
+// ===== الانتقال للمشهد الثاني =====
+function startScene() {
   document.getElementById("scene1").classList.add("hidden");
   document.getElementById("scene2").classList.remove("hidden");
-  document.getElementById("hackSound").play();
+  document.getElementById("hackSound").play().catch(()=>{});
   type();
-},2000);
+}
+
+// ===== تشغيل بعد ضغط المستخدم =====
+document.body.addEventListener("click", () => {
+  setTimeout(startScene, 1500);
+}, {once:true});
 </script>
 
 </body>
