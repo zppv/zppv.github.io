@@ -39,18 +39,25 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 20px;
 }
 
-/* إطار الفيديو */
+/* تأثير وميض أسود */
+@keyframes blackFlash {
+  0%,100% { filter: brightness(1); }
+  50% { filter: brightness(0); }
+}
+
+/* إطار الفيديو ووميض */
 .main-image {
   border-radius: 8px;
   border: 2px solid rgba(255,255,255,0.8);
   box-shadow: 0 0 20px rgba(255,255,255,0.9), 0 0 40px rgba(255,255,255,0.5);
   max-width: 500px;
+  animation: blackFlash 3s infinite;
 }
 
-/* وميض النص */
+/* وميض نص HACKED BY */
 .hacked-text {
   font-size: 2em;
   font-weight: bold;
@@ -62,7 +69,7 @@ body {
   50% { text-shadow: 0 0 5px #aaa; color: #ddd; }
 }
 
-/* تيرمنال */
+/* تيرمنال واقعي */
 .terminal {
   background: #000;
   border-radius: 6px;
@@ -73,17 +80,17 @@ body {
   overflow: hidden;
 }
 
-/* شريط علوي للتيرمنال */
+/* شريط التيرمنال والأزرار الصغيرة */
 .terminal-header {
   background: #222;
   padding: 5px 10px;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
 }
 .btn {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
 }
 .close { background: #ff5f57; }
@@ -91,88 +98,4 @@ body {
 .max { background: #28c840; }
 
 /* محتوى التيرمنال */
-.terminal-body {
-  padding: 15px;
-  color: var(--green);
-  text-shadow: 0 0 5px var(--green);
-  font-size: 1em;
-  white-space: pre-wrap;
-}
-.white { color: #fff; text-shadow: none; }
-.cursor {
-  display: inline-block;
-  width: 8px;
-  background: var(--green);
-  animation: blink 1s steps(2,start) infinite;
-}
-@keyframes blink { 50% { opacity: 0; } }
-
-.discord {
-  color: #fff;
-  margin-bottom: 10px;
-  display: block;
-}
-</style>
-</head>
-<body>
-
-<!-- مشهد 1 -->
-<div id="scene1" class="scene">
-  <div class="big">SECURITY ALERT FHD IN THE SYSTEM ..
-DISCORD.GG/SKS لا تنسى تشقر علينا</div>
-</div>
-
-<!-- مشهد 2 -->
-<div id="scene2" class="scene hidden">
-  <div class="container">
-    <!-- فيديو -->
-    <video class="main-image" src="https://media.tenor.com/cKfdGo-ejPAAAAPo/brian-moser-brian.mp4" autoplay loop muted playsinline></video>
-    
-    <!-- HACKED BY -->
-    <div class="hacked-text">HACKED BY ABU ROUQI</div>
-    
-    <!-- تيرمنال -->
-    <div class="terminal">
-      <div class="terminal-header">
-        <div class="btn close"></div>
-        <div class="btn min"></div>
-        <div class="btn max"></div>
-      </div>
-      <div class="terminal-body">
-        <span class="discord">discord.gg/SKS</span>
-        <span class="white">ROUQI:</span> <span id="typed"></span><span class="cursor"></span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- صوت -->
-<audio id="hackSound" src="https://audio.jukehost.co.uk/8FojJF4kJUgRyL9BonbwZHOJ6CWfzSlM"></audio>
-
-<script>
-const text = ` السلام عليكم ورحمة الله وبركاته
-ماني هنا اخرب ولا اعبث بالسيرفر
-لكن اتمنى من الاونر بكل احترام يتواصل معي على الخاص.`;
-
-let i = 0;
-function type() {
-  if (i < text.length) {
-    document.getElementById("typed").textContent += text[i++];
-    setTimeout(type, 40);
-  }
-}
-
-// الانتقال التلقائي
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    document.getElementById("scene1").classList.add("hidden");
-    document.getElementById("scene2").classList.remove("hidden");
-    document.getElementById("hackSound").play().catch(()=>{});
-    type();
-  }, 3000);
-});
-</script>
-
-</body>
-</html>
-
+... (95 lines left)
