@@ -1,251 +1,70 @@
 <!doctype html>
 <html lang="ar">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>HACKED BY ROUQI</title>
+<meta charset="utf-8">
+<title>Hack Scene</title>
 <style>
-:root {
-  --bg: #000;
-  --green: #3cff3c;
-  --white: #fff;
-}
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  background: var(--bg);
-  color: var(--white);
-  font-family: Arial, sans-serif;
-  overflow: hidden;
-}
-.scene {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  opacity: 0;
-  transition: opacity 1s ease;
-}
-.scene.active {
-  opacity: 1;
-}
-
-/* Glitch Effect */
-.glitch {
-  position: relative;
-  color: var(--white);
-  font-weight: bold;
-  text-transform: uppercase;
-  animation: glitch 1s infinite;
-}
-.glitch::before,
-.glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-}
-.glitch::before {
-  animation: glitchTop 1s infinite;
-  clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
-  color: red;
-}
-.glitch::after {
-  animation: glitchBottom 1s infinite;
-  clip-path: polygon(0 66%, 100% 66%, 100% 100%, 0 100%);
-  color: blue;
-}
-@keyframes glitch {
-  0%, 100% {transform: translate(0);}
-  20% {transform: translate(-2px, 2px);}
-  40% {transform: translate(-2px, -2px);}
-  60% {transform: translate(2px, 2px);}
-  80% {transform: translate(2px, -2px);}
-}
-@keyframes glitchTop {
-  0%, 100% {transform: translate(0);}
-  20% {transform: translate(-2px, -2px);}
-  40% {transform: translate(-3px, -1px);}
-  60% {transform: translate(2px, -3px);}
-  80% {transform: translate(3px, -2px);}
-}
-@keyframes glitchBottom {
-  0%, 100% {transform: translate(0);}
-  20% {transform: translate(2px, 2px);}
-  40% {transform: translate(1px, 3px);}
-  60% {transform: translate(-3px, 2px);}
-  80% {transform: translate(-2px, 3px);}
-}
-
-/* Scene 1 - Security Alert */
-.scene1 {
-  text-align: center;
-}
-.scene1 img {
-  width: 250px;
-  height: 250px;
-  object-fit: cover;
-  margin: 20px;
-  border: 2px solid #555;
-  animation: glitch 1.5s infinite;
-}
-.alert-text {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 20px 0;
-}
-.link-text {
-  font-size: 18px;
-  color: var(--green);
-}
-
-/* Scene 2 - Hacked Page */
-@keyframes glow {
-  0%, 100% {
-    filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
-  }
-  50% {
-    filter: drop-shadow(0 0 15px white) drop-shadow(0 0 25px white);
-  }
-}
-.scene2 {
-  text-align: center;
-  padding: 20px;
-  color: var(--white);
-}
-.scene2 img {
-  width: 420px;
-  height: 250px;
-  object-fit: cover;
-  margin-bottom: 20px;
-  animation: glow 2.5s ease-in-out infinite alternate;
-  border-radius: 10px;
-  cursor: default;
-  user-select: none;
-}
-
-/* توهج نصوص المشهد الثاني */
-.scene2 h1.glow-text {
-  font-size: 48px;
-  letter-spacing: 5px;
-  margin: 10px 0;
-  color: white;
-  text-shadow:
-    0 0 5px white,
-    0 0 10px white,
-    0 0 20px white,
-    0 0 40px #3cff3c;
-  animation: glow 2.5s ease-in-out infinite alternate;
-  text-transform: uppercase;
-}
-
-/* التيرمنال */
-.terminal {
-  background: #050505;
-  padding: 20px;
-  border-radius: 8px;
-  color: var(--green);
-  text-align: left;
-  font-family: "Courier New", monospace;
-  max-width: 800px;
-  margin: 0 auto;
-  white-space: pre-wrap;
-  font-size: 16px;
-  box-shadow:
-    0 0 10px #3cff3c,
-    0 0 20px #3cff3c,
-    0 0 30px #3cff3c;
-  overflow: hidden;
-  min-height: 140px;
-  position: relative;
-}
-
-/* تأثير كتابة النص - typewriter */
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-@keyframes blink-caret {
-  0%, 100% { border-color: transparent }
-  50% { border-color: var(--green) }
-}
-
-.terminal-text {
-  overflow: hidden; /* Ensures the content is hidden as it types */
-  border-right: 3px solid var(--green);
-  white-space: nowrap;
-  letter-spacing: 2px;
-  animation:
-    typing 6s steps(60, end) forwards,
-    blink-caret 0.8s step-end infinite;
-  width: 0;
-}
-
-/* Footer */
-.footer {
-  margin-top: 20px;
-  font-size: 12px;
-  color: #888;
-}
+:root{--green:#39ff14}
+body{margin:0;background:#000;color:#fff;font-family:monospace;overflow:hidden}
+.scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:.8s;opacity:1}
+.hidden{opacity:0;pointer-events:none}
+.big{font-size:3em;letter-spacing:4px;text-shadow:0 0 10px #fff}
+.terminal{background:rgba(0,0,0,.7);padding:15px;border:1px solid rgba(57,255,20,.2);color:var(--green);text-shadow:0 0 5px var(--green);white-space:pre-wrap}
+.cursor{display:inline-block;width:8px;background:var(--green);animation:blink 1s steps(2,start) infinite}
+@keyframes blink{50%{opacity:0}}
+img{max-width:100%;border:1px solid #333;box-shadow:0 0 20px rgba(255,255,255,.6),0 0 40px rgba(255,255,255,.3)}
+.col{display:flex;flex-direction:column;gap:10px}
+.right{width:30%}
+.left{width:65%}
+.container{display:flex;gap:15px;padding:15px}
+.title{font-size:1.5em;text-shadow:0 0 10px #fff;margin-bottom:10px}
 </style>
 </head>
 <body>
 
-<audio id="bg-music" autoplay loop hidden>
-  <source src="https://audio.jukehost.co.uk/8FojJF4kJUgRyL9BonbwZHOJ6CWfzSlM" type="audio/mpeg" />
-</audio>
-
-<!-- Scene 1 -->
-<div class="scene scene1 active">
-  <div style="display:flex;gap:20px;">
-    <img src="IMAGE1.jpg" alt="left image" />
-    <img src="IMAGE2.jpg" alt="right image" />
-  </div>
-  <div class="alert-text glitch" data-text="SECURITY ALERT ROUQI IN THE SYSTEM ..">
-    SECURITY ALERT ROUQI IN THE SYSTEM ..
-  </div>
-  <div class="link-text glitch" data-text="DISCORD.GG/SKS">DISCORD.GG/SKS</div>
-  <div style="margin-top:10px;">لاتنسى تصلي على النبي</div>
+<div id="scene1" class="scene">
+  <div class="big">الرَت</div>
 </div>
 
-<!-- Scene 2 -->
-<div class="scene scene2">
-  <img src="https://media.tenor.com/cKfdGo-ejPAAAAPo/brian-moser-brian.gif" alt="Hacked GIF" />
-  <h1 class="glow-text" data-text="HACKED BY RouQi">HACKED BY RouQi</h1>
-  <div class="terminal">
-    <div id="terminal-text" class="terminal-text"></div>
+<div id="scene2" class="scene hidden">
+  <div class="container">
+    <div class="left">
+      <img src="E1F1B75D-8093-45FE-A2AA-CAA1BCBAEDCF.jpeg" alt="">
+      <div class="title">HACKED BY SAHM</div>
+      <div class="terminal"><span id="typed"></span><span class="cursor"></span></div>
+    </div>
+    <div class="right">
+      <img id="secondImg" alt="">
+    </div>
   </div>
-  <div class="footer">OFFICALLY NIGHTMARE · iG ZPPC ,DIS ZPPC</div>
 </div>
 
 <script>
-  // التبديل بين المشاهد
-  setTimeout(() => {
-    document.querySelector('.scene1').classList.remove('active');
-    document.querySelector('.scene2').classList.add('active');
-  }, 4000);
+// ===== إعداد الصورة الثانية هنا =====
+const secondImageSrc = "EDA3FA54-1723-4DBD-B08C-78C528530ADD.jpeg";
+document.getElementById("secondImg").src = secondImageSrc;
 
-  // نص التيرمنال للكتابة
-  const terminalContent = `السلام عليكم ورحمة الله وبركاته  
-RouQi : صلوا عالنبي وخلوا الاونر يتواصل معي دس عشان يقفل الثغره zppc...`;
+// ===== نص التيرمنال =====
+const text = `SAHM: هذا عرض تجريبي لمحاكاة واجهة تنبيه أمني.
+تم إنشاء هذه المحاكاة لأغراض تعليمية في مشروع المدرسة.
+الهدف هو عرض رسائل نظامية بأسلوب التيرمنال، مع كتابة حرفية وتوهج أخضر.
+تذكير: هذا مجرد مشروع تعليمي.`;
 
-  // كتابة النص في التيرمنال حرف حرف
-  const terminalTextElem = document.getElementById('terminal-text');
-  let index = 0;
-
-  function typeWriter() {
-    if (index < terminalContent.length) {
-      terminalTextElem.textContent += terminalContent.charAt(index);
-      index++;
-      setTimeout(typeWriter, 70); // سرعة الكتابة (يمكن تعديلها)
-    }
+// ===== تأثير الكتابة =====
+let i=0;
+function type(){
+  if(i<text.length){
+    document.getElementById("typed").textContent += text[i++];
+    setTimeout(type,40);
   }
+}
 
-  // نبدأ الكتابة بعد ظهور المشهد الثاني (نفس وقت إظهار المشهد)
-  setTimeout(() => {
-    typeWriter();
-  }, 4000);
+// ===== انتقال المشهد =====
+setTimeout(()=>{
+  scene1.classList.add("hidden");
+  scene2.classList.remove("hidden");
+  type();
+},1500);
 </script>
 
 </body>
