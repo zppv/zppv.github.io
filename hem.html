@@ -41,16 +41,18 @@ body {
   to { text-shadow: 0 0 20px #fff, 0 0 40px #fff; }
 }
 
+/* تحسين التيرمنال */
 .terminal {
   background: rgba(0, 0, 0, 0.6);
   padding: 20px;
+  border-radius: 8px;
   border: 2px solid rgba(255, 255, 255, 0.3);
   color: var(--green);
   text-shadow: 0 0 7px var(--green);
   white-space: pre-wrap;
   font-size: 1.2em;
   min-height: 200px;
-  flex-grow: 1;
+  width: 100%;
   animation: glowBorder 1.5s ease-in-out infinite alternate;
 }
 
@@ -69,6 +71,7 @@ body {
 
 video {
   max-width: 100%;
+  border-radius: 8px;
   border: 1px solid #fff;
   animation: glowBorder 1.5s ease-in-out infinite alternate;
   display: block;
@@ -76,16 +79,24 @@ video {
 
 .title {
   font-size: 1.5em;
-  margin: 15px 0;
+  margin: 15px 0 5px;
   animation: glowText 1.5s ease-in-out infinite alternate;
   text-align: center;
+}
+
+/* النص فوق التيرمنال */
+.hacked-text {
+  font-size: 1.3em;
+  margin: 5px 0 10px;
+  text-align: center;
+  animation: glowText 1.5s ease-in-out infinite alternate;
 }
 
 #scene2 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
   padding: 15px;
   width: 100%;
   max-width: 900px;
@@ -107,6 +118,8 @@ DISCORD.GG/SKS لا تنسى تشقر علينا</div>
     <video src="https://media.tenor.com/cKfdGo-ejPAAAAPo/brian-moser-brian.mp4" autoplay loop muted playsinline></video>
     <!-- العنوان -->
     <div class="title">server@system iG ZPPC, Dis ZPPC</div>
+    <!-- نص HACKED BY -->
+    <div class="hacked-text">HACKED BY ABU ROUQI</div>
     <!-- التيرمنال -->
     <div class="terminal"><span id="typed"></span><span class="cursor"></span></div>
   </div>
