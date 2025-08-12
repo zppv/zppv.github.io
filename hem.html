@@ -1,152 +1,130 @@
-<!doctype html>
-<html lang="ar">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8">
-<title>HACKED BY ABU ROUQI</title>
+<meta charset="UTF-8">
+<title>Hacked by ABU ROUQI</title>
 <style>
-:root { --green: #39ff14; }
-
+:root { --green: #39ff14; --bg: #000; }
 body {
   margin: 0;
-  background: #000;
+  padding: 0;
+  background: var(--bg);
   color: #fff;
-  font-family: monospace;
+  font-family: "Consolas", "Monaco", monospace;
   overflow: hidden;
+  text-align: center;
 }
 
-/* مشهد عام */
+/* Scene containers */
 .scene {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.8s;
+  transition: opacity 0.6s ease;
 }
 .hidden { opacity: 0; pointer-events: none; }
 
-/* مشهد أول */
-.big {
-  font-size: 2.5em;
-  letter-spacing: 3px;
-  text-shadow: 0 0 10px #fff;
-  text-align: center;
-  white-space: pre-line;
+/* Scene 1: typewriter effect */
+#scene1 .text {
+  font-size: 2em;
+  white-space: pre;
+  letter-spacing: .05em;
 }
 
-/* مشهد ثاني */
-.container {
+/* Scene 2: layout */
+.wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
+  padding: 20px;
 }
-
-/* تأثير وميض أسود */
-@keyframes blackFlash {
-  0%,100% { filter: brightness(1); }
-  50% { filter: brightness(0); }
-}
-
-/* إطار الصورة ووميض */
-.main-image {
+.video-frame {
+  border: 2px solid #fff;
+  box-shadow: 0 0 20px #fff;
   border-radius: 8px;
-  border: 2px solid rgba(255,255,255,0.8);
-  box-shadow: 0 0 20px rgba(255,255,255,0.9), 0 0 40px rgba(255,255,255,0.5);
-  max-width: 500px;
-  animation: blackFlash 3s infinite;
-}
-
-/* وميض نص HACKED BY */
-.hacked-text {
-  font-size: 2em;
-  font-weight: bold;
-  text-align: center;
-  animation: flash 1.5s infinite;
-}
-@keyframes flash {
-  0%, 100% { text-shadow: 0 0 10px #fff, 0 0 20px #fff; color: #fff; }
-  50% { text-shadow: 0 0 5px #aaa; color: #ddd; }
-}
-
-/* تيرمنال واقعي */
-.terminal {
-  background: #000;
-  border-radius: 6px;
-  border: 1px solid rgba(255,255,255,0.3);
-  width: 600px;
-  font-family: "Consolas", "Monaco", monospace;
-  box-shadow: 0 0 15px rgba(255,255,255,0.4);
   overflow: hidden;
 }
+@keyframes blackFlash {
+  0%,100% { filter: brightness(1); }
+  50% { filter: brightness(0.3); }
+}
+.video-frame video {
+  width: 640px;
+  max-width: 90vw;
+  animation: blackFlash 3s infinite alternate;
+}
 
-/* شريط التيرمنال والأزرار الصغيرة */
+/* HACKED BY text */
+.hacked {
+  font-size: 2.5em;
+  text-shadow: 0 0 10px #fff;
+  animation: flashText 1.5s infinite alternate;
+}
+@keyframes flashText {
+  from { opacity: 1; }
+  to { opacity: 0.85; }
+}
+
+/* Terminal */
+.terminal {
+  width: 640px;
+  max-width: 90vw;
+  background: rgba(0,0,0,0.8);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 6px;
+  box-shadow: 0 0 15px rgba(255,255,255,0.5);
+  overflow: hidden;
+}
 .terminal-header {
   background: #222;
-  padding: 5px 10px;
+  padding: 5px;
   display: flex;
-  align-items: center;
-  gap: 4px;
+  gap: 5px;
 }
 .btn {
-  width: 10px;
-  height: 10px;
+  width: 9px; height: 9px;
   border-radius: 50%;
 }
-.close { background: #ff5f57; }
-.min { background: #ffbd2e; }
-.max { background: #28c840; }
-
-/* محتوى التيرمنال */
+.btn.close { background: #ff5f57; }
+.btn.min { background: #ffbd2e; }
+.btn.max { background: #28c840; }
 .terminal-body {
-  padding: 15px;
   color: var(--green);
-  text-shadow: 0 0 5px var(--green);
-  font-size: 1em;
+  padding: 15px;
+  text-align: right;
   white-space: pre-wrap;
-}
-.white { color: #fff; text-shadow: none; }
-.cursor {
-  display: inline-block;
-  width: 8px;
-  background: var(--green);
-  animation: blink 1s steps(2,start) infinite;
-}
-@keyframes blink { 50% { opacity: 0; } }
-
-.discord {
-  color: #fff;
-  margin-bottom: 10px;
-  display: block;
+  font-size: 1em;
+  line-height: 1.5;
 }
 
-/* نص تحت التيرمنال */
-.footer-text {
-  font-size: 1.1em;
+/* Footer */
+.footer {
   margin-top: 10px;
-  text-shadow: 0 0 10px #fff;
-  text-align: center;
+  font-size: 1em;
+  color: #ccc;
+  text-shadow: 0 0 8px #fff;
 }
 </style>
 </head>
 <body>
 
-<!-- مشهد 1 -->
+<!-- Scene 1 -->
 <div id="scene1" class="scene">
-  <div class="big">SECURITY ALERT FHD IN THE SYSTEM ..
-DISCORD.GG/SKS لا تنسى تشقر علينا</div>
+  <div class="text" id="typeText"></div>
 </div>
 
-<!-- مشهد 2 -->
+<!-- Scene 2 -->
 <div id="scene2" class="scene hidden">
-  <div class="container">
-    <!-- صورة متحركة مع وميض -->
-    <video class="main-video" src="https://s6.ezgif.com/tmp/ezgif-633d68591e03d6.mp4" alt="Main GIF">
-    
-    <!-- HACKED BY -->
-    <div class="hacked-text">HACKED BY ABU ROUQI</div>
-    
-    <!-- تيرمنال -->
+  <div class="wrap">
+    <div class="video-frame">
+      <video id="mainVideo" autoplay loop playsinline>
+        <source src="https://media.tenor.com/cKfdGo-ejPAAAAPo/brian-moser-brian.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hacked">HACKED BY ABU ROUQI</div>
     <div class="terminal">
       <div class="terminal-header">
         <div class="btn close"></div>
@@ -154,45 +132,52 @@ DISCORD.GG/SKS لا تنسى تشقر علينا</div>
         <div class="btn max"></div>
       </div>
       <div class="terminal-body">
-        <span class="discord">discord.gg/SKS</span>
-        <span class="white">ROUQI:</span> <span id="typed"></span><span class="cursor"></span>
+discord.gg/SKS
+ROUQI: السلام عليكم ورحمة الله وبركاته
+ماني هنا اخرب ولا اعبث بالسيرفر
+لكن اتمنى من الأونر بكل احترام يتواصل معي على الخاص
       </div>
     </div>
-
-    <!-- نص الفوتر -->
-    <div class="footer-text">OFFICIALLY NIGHTMARE - FHD ALROUQI</div>
+    <div class="footer">OFFICIALLY NIGHTMARE – FHD ALROUQI</div>
   </div>
 </div>
 
-<!-- الصوت -->
-<audio id="hackSound" src="https://audio.jukehost.co.uk/8FojJF4kJUgRyL9BonbwZHOJ6CWfzSlM"></audio>
+<!-- Audio for music -->
+<audio id="bgMusic" src="https://audio.jukehost.co.uk/8FojJF4kJUgRyL9BonbwZHOJ6CWfzSlM" preload="auto"></audio>
+<!-- Typing sound -->
+<audio id="typeSound" src="https://www.soundjay.com/mechanical/keyboard-1.mp3" preload="auto"></audio>
 
 <script>
-const text = ` السلام عليكم ورحمة الله وبركاته
-ماني هنا اخرب ولا اعبث بالسيرفر
-لكن اتمنى من الاونر بكل احترام يتواصل معي على الخاص.`;
+const fullText = `SECURITY ALERT FHD IN THE SYSTEM ..\nDISCORD.GG/SKS\nلا تنسى تشقر علينا`;
+const typeElem = document.getElementById('typeText');
+const soundElem = document.getElementById('typeSound');
+let idx = 0;
 
-let i = 0;
-function type() {
-  if (i < text.length) {
-    document.getElementById("typed").textContent += text[i++];
-    setTimeout(type, 40);
+function typeWriter() {
+  if (idx < fullText.length) {
+    const ch = fullText.charAt(idx++);
+    typeElem.textContent += ch;
+    if (ch !== "\n" && ch !== " ") {
+      soundElem.currentTime = 0;
+      soundElem.play().catch(()=>{});
+    }
+    setTimeout(typeWriter, 70 + Math.random() * 50);
+  } else {
+    setTimeout(showScene2, 2000);
   }
 }
 
-// الانتقال التلقائي بعد 3 ثواني
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    document.getElementById("scene1").classList.add("hidden");
-    document.getElementById("scene2").classList.remove("hidden");
-    document.getElementById("hackSound").play().catch(()=>{});
-    type();
-  }, 3000);
-});
+function showScene2() {
+  document.getElementById('scene1').classList.add('hidden');
+  document.getElementById('scene2').classList.remove('hidden');
+  const music = document.getElementById('bgMusic');
+  const video = document.getElementById('mainVideo');
+  music.play().catch(()=>{});
+  video.play().catch(()=>{});
+}
+
+window.onload = typeWriter;
 </script>
 
 </body>
 </html>
-
-
-
