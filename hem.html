@@ -48,7 +48,7 @@ body {
   50% { filter: brightness(0); }
 }
 
-/* إطار الفيديو ووميض */
+/* إطار الصورة ووميض */
 .main-image {
   border-radius: 8px;
   border: 2px solid rgba(255,255,255,0.8);
@@ -98,4 +98,98 @@ body {
 .max { background: #28c840; }
 
 /* محتوى التيرمنال */
-... (95 lines left)
+.terminal-body {
+  padding: 15px;
+  color: var(--green);
+  text-shadow: 0 0 5px var(--green);
+  font-size: 1em;
+  white-space: pre-wrap;
+}
+.white { color: #fff; text-shadow: none; }
+.cursor {
+  display: inline-block;
+  width: 8px;
+  background: var(--green);
+  animation: blink 1s steps(2,start) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+.discord {
+  color: #fff;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* نص تحت التيرمنال */
+.footer-text {
+  font-size: 1.1em;
+  margin-top: 10px;
+  text-shadow: 0 0 10px #fff;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<!-- مشهد 1 -->
+<div id="scene1" class="scene">
+  <div class="big">SECURITY ALERT FHD IN THE SYSTEM ..
+DISCORD.GG/SKS لا تنسى تشقر علينا</div>
+</div>
+
+<!-- مشهد 2 -->
+<div id="scene2" class="scene hidden">
+  <div class="container">
+    <!-- صورة متحركة مع وميض -->
+    <img class="main-image" src="https://media.tenor.com/WU0vhMUEzlAAAAAd/brian-moser.gif" alt="Main GIF">
+    
+    <!-- HACKED BY -->
+    <div class="hacked-text">HACKED BY ABU ROUQI</div>
+    
+    <!-- تيرمنال -->
+    <div class="terminal">
+      <div class="terminal-header">
+        <div class="btn close"></div>
+        <div class="btn min"></div>
+        <div class="btn max"></div>
+      </div>
+      <div class="terminal-body">
+        <span class="discord">discord.gg/SKS</span>
+        <span class="white">ROUQI:</span> <span id="typed"></span><span class="cursor"></span>
+      </div>
+    </div>
+
+    <!-- نص الفوتر -->
+    <div class="footer-text">OFFICIALLY NIGHTMARE - FHD ALROUQI</div>
+  </div>
+</div>
+
+<!-- الصوت -->
+<audio id="hackSound" src="https://audio.jukehost.co.uk/8FojJF4kJUgRyL9BonbwZHOJ6CWfzSlM"></audio>
+
+<script>
+const text = ` السلام عليكم ورحمة الله وبركاته
+ماني هنا اخرب ولا اعبث بالسيرفر
+لكن اتمنى من الاونر بكل احترام يتواصل معي على الخاص.`;
+
+let i = 0;
+function type() {
+  if (i < text.length) {
+    document.getElementById("typed").textContent += text[i++];
+    setTimeout(type, 40);
+  }
+}
+
+// الانتقال التلقائي بعد 3 ثواني
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById("scene1").classList.add("hidden");
+    document.getElementById("scene2").classList.remove("hidden");
+    document.getElementById("hackSound").play().catch(()=>{});
+    type();
+  }, 3000);
+});
+</script>
+
+</body>
+</html>
